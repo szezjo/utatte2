@@ -11,7 +11,7 @@ const DeviceTypeSelect = ({setDeviceType} : DeviceTypeSelectProps) => {
 
     return (<>
             <h1 className="text-3xl font-bold text-blue-100">{t('setup.selectDeviceType')}</h1>
-            <div className="min-w-full flex space-x-12 justify-center items-center">
+            <div className="min-w-full flex flex-col space-y-12 justify-center items-center md:flex-row md:space-x-12 md:space-y-0">
                 <OptionCard text={t('setup.deviceTypePlayer')} image="./assets/tv.png" onClick={() => setDeviceType(true)} />
                 <OptionCard text={t('setup.deviceTypeCompanion')} image="./assets/tablet.png" onClick={() => setDeviceType(false)}  />
             </div></>

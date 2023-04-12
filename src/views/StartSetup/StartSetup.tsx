@@ -16,7 +16,7 @@ const StartSetup = () => {
   }, [parent])
 
   return (
-    <div className="min-h-screen flex flex-col space-y-12 justify-center items-center bg-slate-800" ref={parent}>
+    <div className="min-h-screen flex flex-col py-8 space-y-12 justify-center items-center bg-slate-800" ref={parent}>
       <img src="./utatteLogo.svg" className="logo" alt="Utatte logo" />
       <div className="flex flex-col justify-center items-center space-y-4">
         {isLoading && (
