@@ -1,3 +1,3 @@
-import StartSetup from "./StartSetup";
+import StartSetup from './StartSetup';
 
 export default StartSetup;

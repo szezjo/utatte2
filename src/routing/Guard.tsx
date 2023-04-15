@@ -1,26 +1,27 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import { useAppSelector } from "../hooks";
-import { RootState } from "../store";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAppSelector } from '../hooks';
+import { RootState } from '../store';
 
-type TAuthType = "SetupDefined"
+type TAuthType = 'SetupDefined' | 'LoggedIn';
 
 type GuardProps = {
-    component: JSX.Element,
-    authType: TAuthType
-    redirectPath: string,
-}
+  component: JSX.Element;
+  authType: TAuthType;
+  redirectPath: string;
+};
 
 const getAuthValueByType = (authType: TAuthType, state: RootState) => {
-    if (authType === "SetupDefined") return state.setup.isSetup;
-}
+  if (authType === 'SetupDefined') return state.setup.isSetup;
+  if (authType === 'LoggedIn') return state.login.loggedIn;
+};
 
-const Guard = ({component, authType, redirectPath}: GuardProps) => {
-    const state = useAppSelector((state) => state);
-    const authValue = getAuthValueByType(authType, state);
+const Guard = ({ component, authType, redirectPath }: GuardProps) => {
+  const state = useAppSelector((state) => state);
+  const authValue = getAuthValueByType(authType, state);
 
-    if (!authValue) return <Navigate to={redirectPath} replace />
-    return component;
-}
+  if (!authValue) return <Navigate to={redirectPath} replace />;
+  return component;
+};
 
 export default Guard;

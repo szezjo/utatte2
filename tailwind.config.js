@@ -4,8 +4,8 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      scale: {
-        '110': '1.10',
+      backgroundImage: {
+        "login-bg": "url('/utatte2-bg.jpg')"
       }
     },
   },
