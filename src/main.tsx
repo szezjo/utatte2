@@ -28,8 +28,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'songs/',
-        element: <Guard authType="LoggedIn" component={<SongSelect />} redirectPath="/" />
-      }
+        element: <Guard authType="LoggedIn" component={<SongSelect />} redirectPath="/" />,
+      },
     ],
   },
 ]);

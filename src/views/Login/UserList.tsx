@@ -24,13 +24,13 @@ const UserList = ({ setScreen, data, isSuccess, isError, isLoading }: UserListPr
     dispatch(setUserId(userId));
     dispatch(setLoginState(true));
     return navigate('/songs/');
-  }
+  };
 
   const handleMultiUser = () => {
     dispatch(setMultiUserDeviceState(true));
     dispatch(setLoginState(true));
     return navigate('/songs/');
-  }
+  };
 
   return (
     <div className="flex flex-1 mb-32 w-full justify-center md:items-center">
@@ -38,7 +38,11 @@ const UserList = ({ setScreen, data, isSuccess, isError, isLoading }: UserListPr
         <div className="flex flex-col flex-wrap md:justify-center items-center w-full max-w-2xl p-6 rounded-lg shadow md:border md:bg-gray-800 md:border-gray-700 md:rounded-lg md:shadow">
           <div className="max-h-96 overflow-y-auto flex flex-row flex-wrap justify-center">
             {data!.map((e) => (
-              <div className="flex flex-col p-6 hover:bg-slate-600 rounded-lg" key={e.id} onClick={() => handleSelectUser(e.id)}>
+              <div
+                className="flex flex-col p-6 hover:bg-slate-600 rounded-lg"
+                key={e.id}
+                onClick={() => handleSelectUser(e.id)}
+              >
                 <img className="rounded-lg w-24" src={`${address}/getUsersProfilePicture/${e.id}`} />
                 <h5 className="text-xl text-center text-blue-100">{e.name}</h5>
               </div>

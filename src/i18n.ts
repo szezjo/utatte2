@@ -35,7 +35,7 @@ i18n.use(initReactI18next).init({
           profilePicture: 'Profile picture',
           clickToUpload: 'Click to upload',
           orDragAndDrop: 'or drag and drop',
-          pictureFileTypes: 'SVG, PNG, JPG or GIF'
+          pictureFileTypes: 'SVG, PNG, JPG or GIF',
         },
       },
     },
@@ -65,7 +65,7 @@ i18n.use(initReactI18next).init({
           profilePicture: 'Grafika profilowa',
           clickToUpload: 'Kliknij, by wysłać grafikę',
           orDragAndDrop: 'lub upuść plik tutaj',
-          pictureFileTypes: 'SVG, PNG, JPG lub GIF'
+          pictureFileTypes: 'SVG, PNG, JPG lub GIF',
         },
       },
     },
@@ -95,7 +95,7 @@ i18n.use(initReactI18next).init({
           profilePicture: 'プロフィール画像',
           clickToUpload: 'クリックでアップロード、',
           orDragAndDrop: 'またはドラッグ＆ドロップ',
-          pictureFileTypes: 'SVG、PNG、JPGまたはGIF'
+          pictureFileTypes: 'SVG、PNG、JPGまたはGIF',
         },
       },
     },

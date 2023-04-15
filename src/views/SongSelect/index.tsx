@@ -1,3 +1,3 @@
-import SongSelect from "./SongSelect";
+import SongSelect from './SongSelect';
 
 export default SongSelect;

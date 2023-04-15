@@ -32,7 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     dispatch(resetLoginData());
-  }, [])
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col md:justify-center items-center md:bg-login-bg md:bg-cover">

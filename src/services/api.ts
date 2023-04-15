@@ -27,16 +27,24 @@ export const api = createApi({
       query: (body) => ({
         url: 'addUser',
         method: 'POST',
-        body
-      })
+        body,
+      }),
     }),
     getSongs: builder.query<Song[], void>({
       query: () => 'listSongs',
     }),
     getQueueEntries: builder.query<QueueEntry[], number>({
-      query: (roomId: number) => `listQueueEntries/${roomId}`
-    })
+      query: (roomId: number) => `listQueueEntries/${roomId}`,
+    }),
   }),
 });
 
-export const { useCheckConnectionQuery, useGetRoomsQuery, useCreateRoomMutation, useGetUsersQuery, useCreateUserMutation, useGetSongsQuery, useGetQueueEntriesQuery } = api;
+export const {
+  useCheckConnectionQuery,
+  useGetRoomsQuery,
+  useCreateRoomMutation,
+  useGetUsersQuery,
+  useCreateUserMutation,
+  useGetSongsQuery,
+  useGetQueueEntriesQuery,
+} = api;

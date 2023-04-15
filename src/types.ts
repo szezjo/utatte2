@@ -29,13 +29,13 @@ export type Song = {
   previewEnd: number;
   scoreModeIncluded: boolean;
   instrumentalIncluded: boolean;
-}
+};
 
 export type QueueEntry = {
   id: number;
   songId: number;
   userId: number;
   roomId: number;
-}
+};
 
 export type UserWithProfilePicture = User & { profilePictureBlob: string };
