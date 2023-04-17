@@ -6,7 +6,7 @@ The application is written in TypeScript. It uses Redux, Redux Toolkit and RTK Q
 This application should be used on both player device and companion devices. Companion mode allows to add songs remotely from devices, such as smartphones or tablets.
 
 > **Warning**
-> This version is in development. Treat it as an EARLY ALPHA version. Core functionalities, such as gameplay, are not implemented yet. If you want to check out working proof-of-concept version, you can find it here: https://github.com/szezjo/utatte-rewrite/
+> This version is in development. Treat it as an EARLY ALPHA version. Core functionalities, such as gameplay, are not implemented yet. If you want to check out working proof-of-concept version, you can find it here: https://github.com/szezjo/utatte/
 
 > **Note**
 > This application requires API to run. You can find it here: https://github.com/szezjo/utatte2-api
