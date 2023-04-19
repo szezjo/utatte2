@@ -3,7 +3,7 @@ import { TScreen } from './Login';
 import { User } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../hooks';
-import { setLoginState, setMultiUserDeviceState, setUserId } from '../../features/login';
+import { setLoginState, setMultiUserDeviceState, setUser } from '../../features/login';
 import { useNavigate } from 'react-router-dom';
 
 type UserListProps = {
@@ -20,8 +20,8 @@ const UserList = ({ setScreen, data, isSuccess, isError, isLoading }: UserListPr
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSelectUser = (userId: number) => {
-    dispatch(setUserId(userId));
+  const handleSelectUser = (userId: number, userName: string) => {
+    dispatch(setUser({ id: userId, name: userName }));
     dispatch(setLoginState(true));
     return navigate('/songs/');
   };
@@ -41,7 +41,7 @@ const UserList = ({ setScreen, data, isSuccess, isError, isLoading }: UserListPr
               <div
                 className="flex flex-col p-6 hover:bg-slate-600 rounded-lg"
                 key={e.id}
-                onClick={() => handleSelectUser(e.id)}
+                onClick={() => handleSelectUser(e.id, e.name)}
               >
                 <img className="rounded-lg w-24" src={`${address}/getUsersProfilePicture/${e.id}`} />
                 <h5 className="text-xl text-center text-blue-100">{e.name}</h5>

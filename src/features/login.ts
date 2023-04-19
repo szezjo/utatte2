@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 interface LoginState {
   roomId: number;
   userId: number;
+  userName: string;
   multiUserDevice: boolean;
   loggedIn: boolean;
 }
@@ -10,6 +11,7 @@ interface LoginState {
 const initialState: LoginState = {
   roomId: -1,
   userId: -1,
+  userName: '',
   multiUserDevice: false,
   loggedIn: false,
 };
@@ -21,8 +23,9 @@ export const loginSlice = createSlice({
     setRoomId: (state, action: PayloadAction<number>) => {
       state.roomId = action.payload;
     },
-    setUserId: (state, action: PayloadAction<number>) => {
-      state.userId = action.payload;
+    setUser: (state, action: PayloadAction<{ id: number; name: string }>) => {
+      state.userId = action.payload.id;
+      state.userName = action.payload.name;
     },
     setMultiUserDeviceState: (state, action: PayloadAction<boolean>) => {
       state.multiUserDevice = action.payload;
@@ -39,5 +42,5 @@ export const loginSlice = createSlice({
   },
 });
 
-export const { setRoomId, setUserId, setMultiUserDeviceState, setLoginState, resetLoginData } = loginSlice.actions;
+export const { setRoomId, setUser, setMultiUserDeviceState, setLoginState, resetLoginData } = loginSlice.actions;
 export default loginSlice.reducer;

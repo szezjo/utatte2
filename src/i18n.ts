@@ -37,6 +37,11 @@ i18n.use(initReactI18next).init({
           orDragAndDrop: 'or drag and drop',
           pictureFileTypes: 'SVG, PNG, JPG or GIF',
         },
+        menu: {
+          switchUser: 'Switch user',
+          login: 'Log in',
+          settings: 'Settings',
+        },
       },
     },
     pl: {
@@ -67,6 +72,11 @@ i18n.use(initReactI18next).init({
           orDragAndDrop: 'lub upuść plik tutaj',
           pictureFileTypes: 'SVG, PNG, JPG lub GIF',
         },
+        menu: {
+          switchUser: 'Przełącz użytkownika',
+          login: 'Zaloguj się',
+          settings: 'Ustawienia',
+        },
       },
     },
     jp: {
@@ -96,6 +106,11 @@ i18n.use(initReactI18next).init({
           clickToUpload: 'クリックでアップロード、',
           orDragAndDrop: 'またはドラッグ＆ドロップ',
           pictureFileTypes: 'SVG、PNG、JPGまたはGIF',
+        },
+        menu: {
+          switchUser: 'ユーザーを変更する',
+          login: 'ログイン',
+          settings: '設定'
         },
       },
     },
