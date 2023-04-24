@@ -30,8 +30,17 @@ export const api = createApi({
         body,
       }),
     }),
-    getSongs: builder.query<Song[], void>({
-      query: () => 'listSongs',
+    getSongsAlphabetically: builder.query<Song[], void>({
+      query: () => 'listSongsAZ',
+    }),
+    getSongsAlphabeticallyByLatin: builder.query<Song[], void>({
+      query: () => 'listSongsAZL',
+    }),
+    getSongsAlphabeticallyRev: builder.query<Song[], void>({
+      query: () => 'listSongsZAL',
+    }),
+    getSongsAlphabeticallyByLatinRev: builder.query<Song[], void>({
+      query: () => 'listSongsZAL',
     }),
     getQueueEntries: builder.query<QueueEntry[], number>({
       query: (roomId: number) => `listQueueEntries/${roomId}`,
@@ -45,6 +54,9 @@ export const {
   useCreateRoomMutation,
   useGetUsersQuery,
   useCreateUserMutation,
-  useGetSongsQuery,
+  useGetSongsAlphabeticallyQuery,
+  useGetSongsAlphabeticallyByLatinQuery,
+  useGetSongsAlphabeticallyRevQuery,
+  useGetSongsAlphabeticallyByLatinRevQuery,
   useGetQueueEntriesQuery,
 } = api;

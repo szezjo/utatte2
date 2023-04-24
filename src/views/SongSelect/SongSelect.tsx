@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useGetQueueEntriesQuery, useGetSongsQuery } from '../../services/api';
+import { useGetQueueEntriesQuery } from '../../services/api';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { resetLoginData } from '../../features/login';
 import { useTranslation } from 'react-i18next';
+import Card from './Card';
+import SongsWindow from './SongsWindow';
 
 const SongSelect = () => {
   const address = import.meta.env.VITE_SERVER_ADDRESS;
@@ -10,25 +12,13 @@ const SongSelect = () => {
   const { t } = useTranslation();
   const { roomId, userId, userName } = useAppSelector((state) => state.login);
   const [isProfileDropdownVisible, setIsProfileDropdownVisible] = useState(false);
-  const {
-    data: songs,
-    isSuccess: songsIsSuccess,
-    isError: songsIsError,
-    isLoading: songsIsLoading,
-  } = useGetSongsQuery();
+  
   const {
     data: queueEntries,
     isSuccess: queueIsSuccess,
     isError: queueIsError,
     isLoading: queueIsLoading,
   } = useGetQueueEntriesQuery(roomId);
-
-  useEffect(() => {
-    if (songsIsSuccess && queueIsSuccess) {
-      console.log(songs);
-      console.log(queueEntries);
-    }
-  }, [songsIsSuccess, queueIsSuccess]);
 
   const handleLogout = () => {
     dispatch(resetLoginData());
@@ -56,8 +46,8 @@ const SongSelect = () => {
   const ref = useOutsideClick(() => setIsProfileDropdownVisible(false));
 
   return (
-    <>
-      <nav>
+    <div className="bg-gray-800 md:bg-login-bg md:bg-cover min-h-screen">
+      <nav className="bg-gray-850 shadow-lg md:bg-darkHT">
         <div className="max-w-screen flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex flex-row space-x-2">
             <div className="relative">
@@ -94,10 +84,17 @@ const SongSelect = () => {
               </div>
             </div>
           </div>
-          <div><img src="/utatteLogo.svg" className="w-24 hidden lg:block" alt="Utatte logo" /></div>
+          <div><img src="/utatteLogo.svg" className="w-24 hidden shadow lg:block" alt="Utatte logo" /></div>
         </div>
       </nav>
-    </>
+
+      <div className="lg:grid max-w-screen w-full lg:gap-4 lg:grid-cols-3 md:p-4">
+          <SongsWindow />
+          <div className="flex-col flex-initial hidden lg:flex lg:col-span-1">
+            <Card cover={`${address}/getCoverImage/1`} name="again" artist="YUI" />
+          </div>  
+      </div>
+    </div>
   );
 };
 
