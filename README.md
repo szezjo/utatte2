@@ -15,7 +15,7 @@ This application should be used on both player device and companion devices. Com
 - [x] First-time setup (language, device type selection)
 - [x] Room selection
 - [x] User selection
-- [ ] Song selection menu
+- [ ] Song selection menu (WIP)
 - [ ] Queue management
 - [ ] Gameplay
 
