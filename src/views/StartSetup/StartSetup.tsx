@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Spinner from '../../components/Spinner';
 import { useCheckConnectionQuery } from '../../services/api';
-import FirstTimeSetup from './FirstTimeSetup';
+import FirstTimeSetup from './subviews/FirstTimeSetup';
 import autoAnimate from '@formkit/auto-animate';
 import { useTranslation } from 'react-i18next';
+import Logo from '../../components/Logo';
+import LoadingText from './components/LoadingText';
 
 const StartSetup = () => {
   const { data, error, isLoading, isSuccess } = useCheckConnectionQuery();
@@ -20,15 +22,15 @@ const StartSetup = () => {
       className="min-h-screen flex flex-col py-8 space-y-12 md:justify-center items-center bg-slate-800"
       ref={parent}
     >
-      <img src="./utatteLogo.svg" className="logo" alt="Utatte logo" />
+      <Logo />
       <div className="flex flex-col justify-center items-center space-y-4">
         {isLoading && (
           <>
-            <h1 className="text-3xl font-bold text-blue-100">{t('loading.connecting')}</h1>
+            <LoadingText>{t('loading.connecting')}</LoadingText>
             <Spinner />
           </>
         )}
-        {error && <h1 className="text-3xl font-bold text-blue-100">{t('loading.connectionError')}</h1>}
+        {error && <LoadingText>{t('loading.connectionError')}</LoadingText>}
       </div>
       {isSuccess && <FirstTimeSetup />}
     </div>

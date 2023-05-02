@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../hooks';
-import { markFirstTimeSetupAsDone, setPlayerMode, setLanguage } from '../../../features/setup';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
+import { markFirstTimeSetupAsDone, setPlayerMode, setLanguage } from '../../../../features/setup';
 import { useNavigate } from 'react-router-dom';
-import DeviceTypeSelect from './DeviceTypeSelect';
-import i18n from '../../../i18n';
-import LanguageSelect from './LanguageSelect';
+import DeviceTypeSelect from './components/DeviceTypeSelect';
+import i18n from '../../../../i18n';
+import LanguageSelect from './components/LanguageSelect';
 import autoAnimate from '@formkit/auto-animate';
 
 type TScreen = 'NoScreen' | 'LanguageScreen' | 'DeviceTypeScreen';

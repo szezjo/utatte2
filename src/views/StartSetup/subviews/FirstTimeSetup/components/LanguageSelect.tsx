@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import LoadingText from '../../../components/LoadingText';
 
 type LanguageSelectProps = {
   setLanguage: (language: string) => void;
@@ -17,7 +18,7 @@ const LanguageSelect = ({ setLanguage, applyLanguage }: LanguageSelectProps) => 
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-blue-100">{t('setup.selectLanguage')}</h1>
+      <LoadingText>{t('setup.selectLanguage')}</LoadingText>
       <div className="flex flex-wrap justify-center items-center max-w-2xl p-6 rounded-lg shadow md:bg-slate-700 md:border md:border-gray-700">
         {languages.map((e) => (
           <div

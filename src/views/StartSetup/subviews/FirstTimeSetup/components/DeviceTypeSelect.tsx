@@ -1,6 +1,7 @@
 import React from 'react';
 import OptionCard from './OptionCard';
 import { useTranslation } from 'react-i18next';
+import LoadingText from '../../../components/LoadingText';
 
 type DeviceTypeSelectProps = {
   setDeviceType: (playerMode: boolean) => void;
@@ -11,7 +12,7 @@ const DeviceTypeSelect = ({ setDeviceType }: DeviceTypeSelectProps) => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-blue-100">{t('setup.selectDeviceType')}</h1>
+      <LoadingText>{t('setup.selectDeviceType')}</LoadingText>
       <div className="min-w-full flex flex-col space-y-12 justify-center items-center md:flex-row md:space-x-12 md:space-y-0">
         <OptionCard text={t('setup.deviceTypePlayer')} image="./assets/tv.png" onClick={() => setDeviceType(true)} />
         <OptionCard

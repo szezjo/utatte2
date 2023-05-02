@@ -5,6 +5,7 @@ import { resetLoginData } from '../../features/login';
 import { useTranslation } from 'react-i18next';
 import Card from './Card';
 import SongsWindow from './SongsWindow';
+import Logo from '../../components/Logo';
 
 const SongSelect = () => {
   const address = import.meta.env.VITE_SERVER_ADDRESS;
@@ -84,7 +85,7 @@ const SongSelect = () => {
               </div>
             </div>
           </div>
-          <div><img src="/utatteLogo.svg" className="w-24 hidden shadow lg:block" alt="Utatte logo" /></div>
+          <div><Logo className="w-24 hidden shadow lg:block" /></div>
         </div>
       </nav>
 

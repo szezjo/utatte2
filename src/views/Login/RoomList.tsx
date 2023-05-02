@@ -4,6 +4,8 @@ import { TScreen } from './Login';
 import { Room } from '../../types';
 import { useAppDispatch } from '../../hooks';
 import { setRoomId } from '../../features/login';
+import Button from '../../components/Button';
+import AddIcon from '../../icons/AddIcon';
 
 type RoomListProps = {
   setScreen: (screen: TScreen) => void;
@@ -38,23 +40,7 @@ const RoomList = ({ setScreen, data, isSuccess, isError, isLoading }: RoomListPr
             ))}
           </div>
           <div className="flex justify-center my-4">
-            <button
-              type="button"
-              className="focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 border border-blue-500 text-blue-500 hover:text-white hover:bg-blue-500 focus:ring-blue-800"
-              onClick={() => setScreen('createRoom')}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5 mr-2 -ml-1"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-              {t('rooms.createRoom')}
-            </button>
+            <Button onClick={() => setScreen('createRoom')} icon={<AddIcon />}>{t('rooms.createRoom')}</Button>
           </div>
         </div>
       )}

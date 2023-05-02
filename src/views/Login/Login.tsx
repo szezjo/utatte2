@@ -7,6 +7,7 @@ import UserList from './UserList';
 import UserCreate from './UserCreate';
 import { useAppDispatch } from '../../hooks';
 import { resetLoginData } from '../../features/login';
+import Logo from '../../components/Logo';
 
 export type TScreen = 'selectRoom' | 'createRoom' | 'selectUser' | 'createUser';
 
@@ -37,7 +38,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col md:justify-center items-center md:bg-login-bg md:bg-cover">
       <div className="flex-none h-32 flex flex-col justify-center items-center">
-        <img src="/utatteLogo.svg" className="scale-75" alt="Utatte logo" />
+        <Logo className="scale-75" />
         <h1 className="text-2xl text-white font-bold">{t(`rooms.${currentScreen}`)}</h1>
       </div>
       {currentScreen === 'selectRoom' && (
