@@ -3,15 +3,17 @@ import { useGetQueueEntriesQuery } from '../../services/api';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { resetLoginData } from '../../features/login';
 import { useTranslation } from 'react-i18next';
-import Card from './Card';
+import Card from './components/Card';
 import SongsWindow from './SongsWindow';
 import Logo from '../../components/Logo';
+import MultiUserIcon from '../../icons/MultiUserIcon';
+import Avatar from '../../components/Avatar';
 
 const SongSelect = () => {
   const address = import.meta.env.VITE_SERVER_ADDRESS;
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const { roomId, userId, userName } = useAppSelector((state) => state.login);
+  const { roomId, userId, userName, multiUserDevice } = useAppSelector((state) => state.login);
   const [isProfileDropdownVisible, setIsProfileDropdownVisible] = useState(false);
   
   const {
@@ -52,14 +54,11 @@ const SongSelect = () => {
         <div className="max-w-screen flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex flex-row space-x-2">
             <div className="relative">
-              <img
-                ref={ref}
-                className={`w-10 h-10 ring ${
+              <Avatar ref={ref} className={`w-10 h-10 ring ${
                   isProfileDropdownVisible ? 'ring-gray-400' : 'ring-transparent'
-                } hover:ring-gray-100 rounded transition-shadow`}
-                src={`${address}/getUsersProfilePicture/${userId}`}
+                } hover:ring-gray-100 rounded transition-shadow`} imageSrc={multiUserDevice ? "" : `${address}/getUsersProfilePicture/${userId}`}
                 onClick={() => setIsProfileDropdownVisible(!isProfileDropdownVisible)}
-              />
+                icon={<MultiUserIcon />}/>
               <div
                 className={`${
                   isProfileDropdownVisible ? 'opacity-100 visible' : 'opacity-0 collapse'

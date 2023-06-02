@@ -39,3 +39,6 @@ export type QueueEntry = {
 };
 
 export type UserWithProfilePicture = User & { profilePictureBlob: string };
+
+export type SortOptionData = {displayName: string, value: SortOption, isLatin: boolean};
+export type SortOption = "name" | "latinName" | "artist" | "latinArtist" | "releaseYear";

@@ -36,6 +36,7 @@ export const loginSlice = createSlice({
     resetLoginData: (state) => {
       state.roomId = initialState.roomId;
       state.userId = initialState.userId;
+      state.userName = initialState.userName;
       state.multiUserDevice = initialState.multiUserDevice;
       state.loggedIn = initialState.loggedIn;
     },
