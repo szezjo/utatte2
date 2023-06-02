@@ -4,6 +4,7 @@ import { api } from './services/api';
 import storage from 'redux-persist/lib/storage';
 import setupReducer from './features/setup';
 import loginReducer from './features/login';
+import settingsReducer from './features/settings';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
 
 const persistConfig = {
@@ -12,11 +13,13 @@ const persistConfig = {
 };
 
 const persistedSetupReducer = persistReducer(persistConfig, setupReducer);
+const persistedSettingsReducer = persistReducer(persistConfig, settingsReducer);
 
 export const store = configureStore({
   reducer: {
     setup: persistedSetupReducer,
     login: loginReducer,
+    settings: persistedSettingsReducer,
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>

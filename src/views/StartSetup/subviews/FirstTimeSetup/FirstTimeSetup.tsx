@@ -6,6 +6,7 @@ import DeviceTypeSelect from './components/DeviceTypeSelect';
 import i18n from '../../../../i18n';
 import LanguageSelect from './components/LanguageSelect';
 import autoAnimate from '@formkit/auto-animate';
+import { setDisplayRomanizedTitles } from '../../../../features/settings';
 
 type TScreen = 'NoScreen' | 'LanguageScreen' | 'DeviceTypeScreen';
 
@@ -37,6 +38,7 @@ const FirstTimeSetup = () => {
   const applyLanguage = (language: string) => {
     i18n.changeLanguage(language);
     dispatch(setLanguage(language));
+    if (language == "jp") dispatch(setDisplayRomanizedTitles(false));
     setScreen('DeviceTypeScreen');
   };
 

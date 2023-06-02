@@ -40,5 +40,14 @@ export type QueueEntry = {
 
 export type UserWithProfilePicture = User & { profilePictureBlob: string };
 
-export type SortOptionData = {displayName: string, value: SortOption, isLatin: boolean};
-export type SortOption = "name" | "latinName" | "artist" | "latinArtist" | "releaseYear";
+export type SortOptionData = {displayName: string, value: SortOption};
+export type SortOption = "name" | "artist" | "releaseYear";
+
+export interface SongGroupMap {
+  [key: string]: Song[];
+}
+
+export type SongGroup = {
+  groupId: string;
+  songs: Song[];
+}
