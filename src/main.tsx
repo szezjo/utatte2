@@ -12,6 +12,7 @@ import Guard from './routing/Guard';
 import InternalizationProvider from './routing/InternationalizationProvider';
 import Root from './views';
 import SongSelect from './views/SongSelect';
+import DialogModalTester from './views/dialogTest';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: 'testdialog/',
+    element: <DialogModalTester />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
